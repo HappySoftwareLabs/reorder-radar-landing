@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service &mdash; Reorder Radar</title>
+    <meta
+      name="description"
+      content="Terms of Service for Reorder Radar, a Shopify inventory forecasting app by Happy Software."
+    />
+    <meta property="og:title" content="Terms of Service - Reorder Radar" />
+    <meta property="og:description" content="Terms of Service for Reorder Radar, a Shopify inventory forecasting app by Happy Software." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://radar.happy.software/terms" />
+    <style>
+      /* ========================================
+         RESET & BASE
+         ======================================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-deep: #0f172a;
+        --bg-card: rgba(30, 41, 59, 0.7);
+        --bg-hero-gradient: radial-gradient(circle at top, #1e293b, #0f172a);
+        --accent: #00d180;
+        --accent-hover: #00b36b;
+        --accent-glow: rgba(0, 209, 128, 0.25);
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --text-heading: #f1f5f9;
+        --border-glass: rgba(255, 255, 255, 0.1);
+        --border-glow: rgba(0, 209, 128, 0.35);
+        --radius: 16px;
+        --radius-sm: 10px;
+        --max-w: 1100px;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background: var(--bg-deep);
+        color: var(--text);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ========================================
+         BUTTONS
+         ======================================== */
+      .btn {
+        display: inline-block;
+        padding: 16px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--bg-deep);
+        background: var(--accent);
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px var(--accent-glow);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      /* ========================================
+         NAV
+         ======================================== */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-heading);
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      nav .btn {
+        font-size: 0.875rem;
+        padding: 10px 24px;
+      }
+
+      /* ========================================
+         LEGAL PAGE HEADER
+         ======================================== */
+      .legal-header {
+        background: var(--bg-hero-gradient);
+        text-align: center;
+        padding: 80px 0 56px;
+        border-bottom: 1px solid var(--border-glass);
+      }
+
+      .legal-header h1 {
+        font-size: 2.75rem;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: var(--text-heading);
+        margin-bottom: 12px;
+      }
+
+      .legal-header p {
+        font-size: 1rem;
+        color: var(--text-muted);
+      }
+
+      /* ========================================
+         LEGAL CONTENT
+         ======================================== */
+      .legal-content {
+        max-width: 740px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+
+      .legal-content h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--text-heading);
+        margin-top: 48px;
+        margin-bottom: 12px;
+        letter-spacing: -0.01em;
+      }
+
+      .legal-content h2:first-child {
+        margin-top: 0;
+      }
+
+      .legal-content p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+        line-height: 1.75;
+      }
+
+      .legal-content ul {
+        list-style: none;
+        margin: 0 0 16px;
+        padding: 0;
+      }
+
+      .legal-content li {
+        position: relative;
+        padding: 6px 0 6px 24px;
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .legal-content li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        opacity: 0.6;
+      }
+
+      .legal-content a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color 0.2s;
+      }
+
+      .legal-content a:hover {
+        color: var(--accent-hover);
+      }
+
+      .legal-content strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* ========================================
+         FOOTER
+         ======================================== */
+      footer {
+        border-top: 1px solid var(--border-glass);
+        padding: 48px 0;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        margin-bottom: 16px;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--text-heading);
+      }
+
+      footer p {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* ========================================
+         RESPONSIVE
+         ======================================== */
+      @media (max-width: 768px) {
+        .legal-header {
+          padding: 64px 0 40px;
+        }
+
+        .legal-header h1 {
+          font-size: 2rem;
+        }
+
+        .legal-content {
+          padding: 48px 24px 72px;
+        }
+
+        .legal-content h2 {
+          margin-top: 36px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .legal-header h1 {
+          font-size: 1.65rem;
+        }
+
+        nav .btn {
+          padding: 8px 18px;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav>
+      <a href="/" class="logo">Reorder&nbsp;<span>Radar</span></a>
+      <a href="https://apps.shopify.com/reorder-radar" class="btn">Install</a>
+    </nav>
+
+    <!-- Header -->
+    <div class="legal-header">
+      <h1>Terms of Service</h1>
+      <p>Last updated: February 2026</p>
+    </div>
+
+    <!-- Content -->
+    <div class="legal-content">
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By installing or using Reorder Radar ("the App"), you agree to be bound
+        by these Terms of Service ("Terms"). If you do not agree, do not install
+        or use the App. The App is provided by Happy Software ("we", "our",
+        "us").
+      </p>
+
+      <h2>2. Description of Service</h2>
+      <p>
+        Reorder Radar is a Shopify application that provides inventory
+        forecasting and reorder recommendations based on your store's sales
+        velocity and inventory data. The App is available in two tiers:
+      </p>
+      <ul>
+        <li><strong>Free plan</strong> &mdash; core forecasting for up to 20 tracked products.</li>
+        <li><strong>Pro plan</strong> &mdash; unlimited product tracking, weekly email digests, and priority support.</li>
+      </ul>
+
+      <h2>3. Account Requirements</h2>
+      <p>
+        To use the App you must have an active Shopify store and be at least 18
+        years old (or the age of majority in your jurisdiction). You are
+        responsible for maintaining the security of your Shopify account and for
+        all activity that occurs under it.
+      </p>
+
+      <h2>4. Billing and Subscriptions</h2>
+      <ul>
+        <li>The Free plan provides access to core features with a limit of 20 tracked products at no charge.</li>
+        <li>The Pro plan is billed at <strong>$49.00 USD per month</strong> through Shopify's billing system.</li>
+        <li>You may cancel your Pro subscription at any time. Cancellation takes effect at the end of the current billing period.</li>
+        <li>Refunds are handled in accordance with <a href="https://help.shopify.com/en/manual/app-store/app-purchases" target="_blank" rel="noopener">Shopify's app billing policies</a>.</li>
+      </ul>
+
+      <h2>5. Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the App for any unlawful purpose.</li>
+        <li>Attempt to reverse-engineer, decompile, or extract source code from the App.</li>
+        <li>Interfere with or disrupt the App's infrastructure or other users' access.</li>
+        <li>Resell, sublicense, or redistribute access to the App without our written consent.</li>
+      </ul>
+
+      <h2>6. Intellectual Property</h2>
+      <p>
+        The App, including its code, design, branding, and documentation, is the
+        intellectual property of Happy Software. All rights are reserved. You
+        retain full ownership of your store data.
+      </p>
+
+      <h2>7. Data and Privacy</h2>
+      <p>
+        Your use of the App is also governed by our
+        <a href="privacy.html">Privacy Policy</a>, which describes how we
+        collect, use, and protect your information. By using the App you consent
+        to the data practices described therein.
+      </p>
+
+      <h2>8. Disclaimer of Warranties</h2>
+      <p>
+        The App is provided <strong>"as is"</strong> and
+        <strong>"as available"</strong> without warranties of any kind, whether
+        express or implied. We do not warrant that the App will be uninterrupted,
+        error-free, or that forecasts will be perfectly accurate. Reorder
+        recommendations are estimates based on historical sales data and should
+        not be your sole basis for purchasing decisions.
+      </p>
+
+      <h2>9. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by law, Happy Software shall not be
+        liable for any indirect, incidental, special, consequential, or punitive
+        damages, including but not limited to lost profits, lost revenue, or lost
+        inventory, arising from your use of the App. Our total aggregate
+        liability shall not exceed the fees you paid us in the twelve (12)
+        months preceding the claim.
+      </p>
+
+      <h2>10. Indemnification</h2>
+      <p>
+        You agree to indemnify, defend, and hold harmless Happy Software and its
+        officers, employees, and agents from any claims, damages, losses, or
+        expenses (including reasonable legal fees) arising from your use of the
+        App or your violation of these Terms.
+      </p>
+
+      <h2>11. Termination</h2>
+      <p>
+        We may suspend or terminate your access to the App at any time if you
+        violate these Terms or engage in activity that may harm the App or other
+        users. You may terminate your use at any time by uninstalling the App
+        from your Shopify store. Upon termination, your right to use the App
+        ceases immediately.
+      </p>
+
+      <h2>12. Changes to Terms</h2>
+      <p>
+        We reserve the right to modify these Terms at any time. When we make
+        material changes we will notify you through the App or via email.
+        Continued use of the App after such notice constitutes acceptance of the
+        updated Terms.
+      </p>
+
+      <h2>13. Governing Law</h2>
+      <p>
+        These Terms shall be governed by and construed in accordance with the
+        laws of the jurisdiction in which Happy Software operates, without regard
+        to conflict of law principles.
+      </p>
+
+      <h2>14. Contact Us</h2>
+      <p>
+        If you have questions about these Terms, contact us at
+        <a href="mailto:support@happy.software">support@happy.software</a>.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <p>Built by Happy Software</p>
+      </div>
+    </footer>
+  </body>
+</html>
