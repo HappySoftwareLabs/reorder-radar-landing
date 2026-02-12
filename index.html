@@ -256,6 +256,72 @@
       }
 
       /* ========================================
+         HERO SCREENSHOT
+         ======================================== */
+      .hero-screenshot {
+        max-width: 960px;
+        margin: -40px auto 0;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-screenshot img {
+        width: 100%;
+        display: block;
+        border-radius: var(--radius);
+        border: 1px solid var(--border-glow);
+        box-shadow: 0 4px 60px rgba(0, 209, 128, 0.12),
+          0 20px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      /* ========================================
+         SHOWCASE
+         ======================================== */
+      .showcase {
+        text-align: center;
+        border-top: 1px solid var(--border-glass);
+      }
+
+      .showcase > .container > p {
+        max-width: 520px;
+        margin: 0 auto 56px;
+      }
+
+      .showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+
+      .showcase-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius);
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: border-color 0.3s, transform 0.2s;
+      }
+
+      .showcase-item:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-4px);
+      }
+
+      .showcase-item img {
+        width: 100%;
+        display: block;
+      }
+
+      .showcase-item .caption {
+        padding: 20px 24px;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        text-align: left;
+      }
+
+      /* ========================================
          PROBLEM / STATS
          ======================================== */
       .problem {
@@ -541,8 +607,13 @@
         }
 
         .features-grid,
-        .pricing-grid {
+        .pricing-grid,
+        .showcase-grid {
           grid-template-columns: 1fr;
+        }
+
+        .hero-screenshot {
+          margin-top: -24px;
         }
 
         .problem .stat {
@@ -602,6 +673,15 @@
         >
       </div>
     </section>
+
+    <!-- Hero Screenshot -->
+    <div class="hero-screenshot">
+      <img
+        src="screenshots/screenshot-1-dashboard.png"
+        alt="Reorder Radar dashboard showing Needs Action and Monitoring product tables"
+        loading="lazy"
+      />
+    </div>
 
     <!-- Problem -->
     <section class="problem">
@@ -680,6 +760,32 @@
               Monitor your entire product catalog with no limits. Free plan
               covers up to 20 products to get you started.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase -->
+    <section class="showcase">
+      <div class="container">
+        <h2>See it in action</h2>
+        <p>Every screen is built for clarity, so you can make restocking decisions at a glance.</p>
+        <div class="showcase-grid">
+          <div class="showcase-item">
+            <img
+              src="screenshots/screenshot-2-product-detail.png"
+              alt="Product detail view with forecasting metrics and recent sales"
+              loading="lazy"
+            />
+            <div class="caption">Deep-dive into any product's velocity, stockout date, and reorder recommendation.</div>
+          </div>
+          <div class="showcase-item">
+            <img
+              src="screenshots/screenshot-3-settings.png"
+              alt="Settings page with lead time, margin, safety buffer, and email digest"
+              loading="lazy"
+            />
+            <div class="caption">Configure lead times, margins, safety buffers, and weekly email digests.</div>
           </div>
         </div>
       </div>
