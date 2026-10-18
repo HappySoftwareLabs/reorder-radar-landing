@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reorder Radar FAQ &mdash; Inventory Forecasting Questions Answered</title>
+    <meta
+      name="description"
+      content="How Reorder Radar&#x27;s profit-at-risk forecasting works, what the Free and Pro plans include, what it doesn&#x27;t do, and how it compares to Stocky."
+    />
+    <link rel="canonical" href="https://radar.happy.software/faq/" />
+    <meta property="og:title" content="Reorder Radar FAQ &mdash; Inventory Forecasting Questions Answered" />
+    <meta property="og:description" content="How Reorder Radar&#x27;s profit-at-risk forecasting works, what the Free and Pro plans include, what it doesn&#x27;t do, and how it compares to Stocky." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://radar.happy.software/faq/" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <style>
+      /* ========================================
+         RESET & BASE
+         ======================================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-deep: #0f172a;
+        --bg-card: rgba(30, 41, 59, 0.7);
+        --accent: #00d180;
+        --accent-hover: #00b36b;
+        --accent-glow: rgba(0, 209, 128, 0.25);
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --text-heading: #f1f5f9;
+        --border-glass: rgba(255, 255, 255, 0.1);
+        --radius: 16px;
+        --radius-sm: 10px;
+        --max-w: 1100px;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background: var(--bg-deep);
+        color: var(--text);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ========================================
+         BUTTONS
+         ======================================== */
+      .btn {
+        display: inline-block;
+        padding: 16px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--bg-deep);
+        background: var(--accent);
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px var(--accent-glow);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      /* ========================================
+         NAV
+         ======================================== */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-heading);
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      nav .btn {
+        font-size: 0.875rem;
+        padding: 10px 24px;
+      }
+
+      /* ========================================
+         LEGAL CONTENT
+         ======================================== */
+      .legal {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+
+      .legal h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: var(--text-heading);
+        margin-bottom: 12px;
+      }
+
+      .legal .last-updated {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 48px;
+      }
+
+      .legal h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--text-heading);
+        margin-top: 40px;
+        margin-bottom: 12px;
+      }
+
+      .legal p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        line-height: 1.7;
+      }
+
+      .legal ul {
+        list-style: none;
+        margin: 0 0 12px;
+        padding: 0;
+      }
+
+      .legal li {
+        position: relative;
+        padding: 4px 0 4px 24px;
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .legal li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .legal strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .legal a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 0.2s;
+      }
+
+      .legal a:hover {
+        color: var(--accent-hover);
+      }
+
+      /* ========================================
+         FOOTER
+         ======================================== */
+      footer {
+        border-top: 1px solid var(--border-glass);
+        padding: 48px 0;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        margin-bottom: 16px;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        transition: color 0.2s;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: var(--text-heading);
+      }
+
+      footer p {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* ========================================
+         RESPONSIVE
+         ======================================== */
+      @media (max-width: 768px) {
+        .legal h1 {
+          font-size: 2rem;
+        }
+
+        .legal h2 {
+          font-size: 1.2rem;
+        }
+
+        .legal {
+          padding: 48px 24px 64px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .legal h1 {
+          font-size: 1.75rem;
+        }
+
+        nav .btn {
+          font-size: 0.8rem;
+          padding: 8px 18px;
+        }
+      }
+
+      /* ========================================
+         NAV LINKS + CONTENT PAGES
+         ======================================== */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .nav-link {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--text-heading);
+      }
+      .legal .lede {
+        font-size: 1.15rem;
+        color: var(--text);
+        margin-bottom: 32px;
+      }
+      .legal h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-heading);
+        margin-top: 28px;
+        margin-bottom: 8px;
+      }
+      .callout {
+        background: var(--bg-card);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius);
+        padding: 24px;
+        margin: 24px 0 32px;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 16px 0 24px;
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-sm);
+      }
+      .legal table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+      .legal th,
+      .legal td {
+        text-align: left;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border-glass);
+        color: var(--text-muted);
+        vertical-align: top;
+      }
+      .legal th {
+        color: var(--text-heading);
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .legal tr:last-child td {
+        border-bottom: none;
+      }
+      .legal code {
+        font-size: 0.9em;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+      .legal .cta {
+        margin-top: 40px;
+        text-align: center;
+      }
+      .legal .cta .btn {
+        color: var(--bg-deep);
+        text-decoration: none;
+      }
+      @media (max-width: 480px) {
+        .nav-right {
+          gap: 14px;
+        }
+        .nav-link {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Reorder Radar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reorder Radar is an app that tells you which products to reorder, and when. It ranks them by how much profit you'd lose if they ran out. It reads your products, stock levels and orders, and calculates a profit at risk figure for each one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I install it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Install it from the App Store listing. It asks for read-only access to products, orders and inventory. After install it syncs your products and the last 60 days of orders. You can re-run the sync any time from the Sync Data page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to configure anything first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Reorder Radar starts with defaults: a 14-day lead time, 30% margin, 7 days of safety stock and a 30-day sales window. You can change these in Settings whenever you like."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Free plan shows your top 50 products, ranked by profit at risk, with the full forecasting dashboard. Pro is $49/month. It removes the product limit and adds a weekly email digest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is profit at risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's the gross profit you're likely to lose if you don't reorder in time. Reorder Radar estimates how many days you'd be out of stock before a new order could arrive, based on your lead time plus safety stock. It then multiplies that by the product's daily sales and margin: profit at risk = daily sales × price × margin × days out of stock A high figure means a fast-selling, profitable product is about to run out. Zero means you have enough stock to cover your lead time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is sales velocity calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "From your Shopify orders over the window you choose in Settings. Each day's sales are weighted so that recent days count more: sales from about a week ago carry roughly half the weight of today's. A product that is speeding up or slowing down shows the change sooner than it would in a flat average."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is safety stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Extra days of cover added on top of your lead time, so that a busier-than-usual week or a late delivery doesn't leave you empty. The default is 7 days, and you can change it in Settings. Products with spiky or seasonal demand usually need more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How confident is each forecast?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each forecast is labelled Low (fewer than 10 sales), Medium (10 to 30) or High (more than 30), based on how many sales it's built on. Treat Low-confidence forecasts as a prompt to check, not a firm number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see the numbers behind a recommendation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Click any product to see its current stock, sales velocity, days of stock, stockout date, recommended reorder quantity and recent sales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Reorder Radar do today?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ranks products by profit at risk, split into Reorder Alerts and Monitoring Calculates sales velocity, days of stock, stockout dates and order-by dates Recommends reorder quantities Has store-wide settings for lead time, margin, safety stock and sales window Lets you override lead time and margin on individual products Updates from Shopify webhooks when orders are created and when products or inventory levels change Sends a weekly email digest on Monday mornings (Pro)"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What doesn't it do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Purchase orders. It tells you what to reorder, but doesn't create or send POs. Vendor management. There are no vendor contacts or terms. Stock transfers or stocktakes. Per-location forecasts. Forecasts use total stock across all your locations. Changes to your store. Access is read-only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I set lead times or margins for individual products?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Open a product and set its own lead time or margin. Anything you don't override uses your store defaults."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work for seasonal products?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partly. Recency weighting picks up a change in demand quickly, but no forecast can see a spike before it starts. For seasonal products, raise the safety stock, choose a longer sales window, and review your recommendations a few weeks before a known peak."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between Free and Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free ($0): your top 50 products by profit at risk, with forecasts, reorder quantities, order-by dates and product details. Pro ($49/month): everything in Free, plus unlimited products and the weekly email digest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, at any time. Billing goes through Shopify, and uninstalling the app ends it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What data does Reorder Radar access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Read-only access to products, orders and inventory. It stores the product and sales data needed for forecasting. The sales records it keeps don't include customer details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when I uninstall?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your store is marked inactive straight away. When Shopify sends its shop data deletion request after uninstall, we delete all of your store's products, sales, forecasts and settings. Details are in the Privacy Policy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from low-stock alerts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A low-stock threshold treats every product the same. Reorder Radar accounts for how fast each product sells, your lead time and your margin. Then it ranks products by the profit you stand to lose, so you know which alerts matter first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I used Stocky. Is this a replacement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It replaces Stocky's reorder planning: what to reorder, how much and by when. It doesn't replace purchase orders, transfers or stocktakes. Shopify switched Stocky off on August 31, 2026. See the full comparison and migration checklist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get help or request a feature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Email support@happy.software. You'll get a reply from the person who builds the app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who builds Reorder Radar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Happy Software, an independent software studio."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav>
+      <a href="/" class="logo">Reorder&nbsp;<span>Radar</span></a>
+      <div class="nav-right">
+        <a href="/faq/" class="nav-link">FAQ</a>
+        <a href="https://apps.shopify.com/reorder-radar" class="btn">Install</a>
+      </div>
+    </nav>
+
+    <main class="legal">
+
+      <h1>Frequently asked questions</h1>
+      <p class="lede">
+        How Reorder Radar works, what it costs, what it doesn't do, and what
+        happens to your data.
+      </p>
+
+      <h2>Getting started</h2>
+      <h3>What is Reorder Radar?</h3>
+      <p>Reorder Radar is an app that tells you which products to reorder, and when. It ranks them by how much profit you'd lose if they ran out. It reads your products, stock levels and orders, and calculates a <em>profit at risk</em> figure for each one.</p>
+      <h3>How do I install it?</h3>
+      <p>Install it from the <a href="https://apps.shopify.com/reorder-radar">App Store listing</a>. It asks for read-only access to products, orders and inventory. After install it syncs your products and the last 60 days of orders. You can re-run the sync any time from the <strong>Sync Data</strong> page.</p>
+      <h3>Do I need to configure anything first?</h3>
+      <p>No. Reorder Radar starts with defaults: a 14-day lead time, 30% margin, 7 days of safety stock and a 30-day sales window. You can change these in Settings whenever you like.</p>
+      <h3>Is there a free plan?</h3>
+      <p>Yes. The Free plan shows your top 50 products, ranked by profit at risk, with the full forecasting dashboard. Pro is $49/month. It removes the product limit and adds a weekly email digest.</p>
+
+      <h2>How the forecasting works</h2>
+      <h3>What is profit at risk?</h3>
+      <p>It's the gross profit you're likely to lose if you don't reorder in time. Reorder Radar estimates how many days you'd be out of stock before a new order could arrive, based on your lead time plus safety stock. It then multiplies that by the product's daily sales and margin:</p><p><code>profit at risk = daily sales &times; price &times; margin &times; days out of stock</code></p><p>A high figure means a fast-selling, profitable product is about to run out. Zero means you have enough stock to cover your lead time.</p>
+      <h3>How is sales velocity calculated?</h3>
+      <p>From your Shopify orders over the window you choose in Settings. Each day's sales are weighted so that recent days count more: sales from about a week ago carry roughly half the weight of today's. A product that is speeding up or slowing down shows the change sooner than it would in a flat average.</p>
+      <h3>What is safety stock?</h3>
+      <p>Extra days of cover added on top of your lead time, so that a busier-than-usual week or a late delivery doesn't leave you empty. The default is 7 days, and you can change it in Settings. Products with spiky or seasonal demand usually need more.</p>
+      <h3>How confident is each forecast?</h3>
+      <p>Each forecast is labelled Low (fewer than 10 sales), Medium (10 to 30) or High (more than 30), based on how many sales it's built on. Treat Low-confidence forecasts as a prompt to check, not a firm number.</p>
+      <h3>Can I see the numbers behind a recommendation?</h3>
+      <p>Yes. Click any product to see its current stock, sales velocity, days of stock, stockout date, recommended reorder quantity and recent sales.</p>
+
+      <h2>Features and limits</h2>
+      <h3>What does Reorder Radar do today?</h3>
+      <ul><li>Ranks products by profit at risk, split into Reorder Alerts and Monitoring</li><li>Calculates sales velocity, days of stock, stockout dates and order-by dates</li><li>Recommends reorder quantities</li><li>Has store-wide settings for lead time, margin, safety stock and sales window</li><li>Lets you override lead time and margin on individual products</li><li>Updates from Shopify webhooks when orders are created and when products or inventory levels change</li><li>Sends a weekly email digest on Monday mornings (Pro)</li></ul>
+      <h3>What doesn&#x27;t it do?</h3>
+      <ul><li><strong>Purchase orders.</strong> It tells you what to reorder, but doesn't create or send POs.</li><li><strong>Vendor management.</strong> There are no vendor contacts or terms.</li><li><strong>Stock transfers or stocktakes.</strong></li><li><strong>Per-location forecasts.</strong> Forecasts use total stock across all your locations.</li><li><strong>Changes to your store.</strong> Access is read-only.</li></ul>
+      <h3>Can I set lead times or margins for individual products?</h3>
+      <p>Yes. Open a product and set its own lead time or margin. Anything you don't override uses your store defaults.</p>
+      <h3>Does it work for seasonal products?</h3>
+      <p>Partly. Recency weighting picks up a change in demand quickly, but no forecast can see a spike before it starts. For seasonal products, raise the safety stock, choose a longer sales window, and review your recommendations a few weeks before a known peak.</p>
+
+      <h2>Pricing and plans</h2>
+      <h3>What&#x27;s the difference between Free and Pro?</h3>
+      <p><strong>Free ($0):</strong> your top 50 products by profit at risk, with forecasts, reorder quantities, order-by dates and product details.</p><p><strong>Pro ($49/month):</strong> everything in Free, plus unlimited products and the weekly email digest.</p>
+      <h3>Can I cancel?</h3>
+      <p>Yes, at any time. Billing goes through Shopify, and uninstalling the app ends it.</p>
+
+      <h2>Your data</h2>
+      <h3>What data does Reorder Radar access?</h3>
+      <p>Read-only access to products, orders and inventory. It stores the product and sales data needed for forecasting. The sales records it keeps don't include customer details.</p>
+      <h3>What happens when I uninstall?</h3>
+      <p>Your store is marked inactive straight away. When Shopify sends its shop data deletion request after uninstall, we delete all of your store's products, sales, forecasts and settings. Details are in the <a href="/privacy.html">Privacy Policy</a>.</p>
+
+      <h2>Comparisons</h2>
+      <h3>How is this different from low-stock alerts?</h3>
+      <p>A low-stock threshold treats every product the same. Reorder Radar accounts for how fast each product sells, your lead time and your margin. Then it ranks products by the profit you stand to lose, so you know which alerts matter first.</p>
+      <h3>I used Stocky. Is this a replacement?</h3>
+      <p>It replaces Stocky's reorder planning: what to reorder, how much and by when. It doesn't replace purchase orders, transfers or stocktakes. Shopify switched Stocky off on August 31, 2026. See the <a href="/vs/stocky/">full comparison and migration checklist</a>.</p>
+
+      <h2>Support</h2>
+      <h3>How do I get help or request a feature?</h3>
+      <p>Email <a href="mailto:support@happy.software">support@happy.software</a>. You'll get a reply from the person who builds the app.</p>
+      <h3>Who builds Reorder Radar?</h3>
+      <p><a href="https://happy.software">Happy Software</a>, an independent software studio.</p>
+
+      <h2>Still have questions?</h2>
+      <p>
+        Email <a href="mailto:support@happy.software">support@happy.software</a>.
+      </p>
+      <div class="cta">
+        <a href="https://apps.shopify.com/reorder-radar" class="btn">Install Reorder Radar free</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+        <div class="footer-links">
+          <a href="/faq/">FAQ</a>
+          <a href="/vs/stocky/">Reorder Radar vs Stocky</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+        <p>Built by Happy Software</p>
+      </div>
+    </footer>
+  </body>
+</html>

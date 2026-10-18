@@ -648,13 +648,49 @@
           max-width: 100%;
         }
       }
+
+      /* Nav links + hero note */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .nav-link {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--text-heading);
+      }
+      .hero .hero-note {
+        margin-top: 20px;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+      .hero .hero-note a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      @media (max-width: 480px) {
+        .nav-right {
+          gap: 14px;
+        }
+        .nav-link {
+          font-size: 0.85rem;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- Nav -->
     <nav>
       <a href="/" class="logo">Reorder&nbsp;<span>Radar</span></a>
-      <a href="https://apps.shopify.com/reorder-radar" class="btn">Install</a>
+      <div class="nav-right">
+        <a href="/faq/" class="nav-link">FAQ</a>
+        <a href="https://apps.shopify.com/reorder-radar" class="btn">Install</a>
+      </div>
     </nav>
 
     <!-- Hero -->
@@ -671,6 +707,9 @@
         <a href="https://apps.shopify.com/reorder-radar" class="btn"
           >Install on Shopify</a
         >
+        <p class="hero-note">
+          Coming from Stocky? <a href="/vs/stocky/">See how Reorder Radar compares</a>
+        </p>
       </div>
     </section>
 
@@ -758,7 +797,7 @@
             <h3>Unlimited Tracking <span class="pro-badge">Pro</span></h3>
             <p>
               Monitor your entire product catalog with no limits. Free plan
-              covers up to 20 products to get you started.
+              covers up to 50 products to get you started.
             </p>
           </div>
         </div>
@@ -805,7 +844,7 @@
             <ul>
               <li>
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
-                Up to 20 tracked products
+                Up to 50 tracked products
               </li>
               <li>
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
@@ -864,7 +903,7 @@
         <h2>Ready to stop guessing?</h2>
         <p>
           Install Reorder Radar and know exactly when to restock &mdash; free
-          for up to 20&nbsp;products.
+          for up to 50&nbsp;products.
         </p>
         <a href="https://apps.shopify.com/reorder-radar" class="btn"
           >Install on Shopify</a
@@ -876,6 +915,8 @@
     <footer>
       <div class="container">
         <div class="footer-links">
+          <a href="/faq/">FAQ</a>
+          <a href="/vs/stocky/">Reorder Radar vs Stocky</a>
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Service</a>
         </div>
