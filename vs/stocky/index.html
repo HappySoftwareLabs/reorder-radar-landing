@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reorder Radar vs Stocky &mdash; Stocky Replacement for Reorder Planning</title>
+    <meta
+      name="description"
+      content="Stocky was switched off on August 31, 2026. An honest comparison of Reorder Radar and Stocky for reorder planning, including what Reorder Radar doesn&#x27;t do."
+    />
+    <link rel="canonical" href="https://radar.happy.software/vs/stocky/" />
+    <meta property="og:title" content="Reorder Radar vs Stocky &mdash; Stocky Replacement for Reorder Planning" />
+    <meta property="og:description" content="Stocky was switched off on August 31, 2026. An honest comparison of Reorder Radar and Stocky for reorder planning, including what Reorder Radar doesn&#x27;t do." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://radar.happy.software/vs/stocky/" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <style>
+      /* ========================================
+         RESET & BASE
+         ======================================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-deep: #0f172a;
+        --bg-card: rgba(30, 41, 59, 0.7);
+        --accent: #00d180;
+        --accent-hover: #00b36b;
+        --accent-glow: rgba(0, 209, 128, 0.25);
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --text-heading: #f1f5f9;
+        --border-glass: rgba(255, 255, 255, 0.1);
+        --radius: 16px;
+        --radius-sm: 10px;
+        --max-w: 1100px;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background: var(--bg-deep);
+        color: var(--text);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ========================================
+         BUTTONS
+         ======================================== */
+      .btn {
+        display: inline-block;
+        padding: 16px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--bg-deep);
+        background: var(--accent);
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px var(--accent-glow);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      /* ========================================
+         NAV
+         ======================================== */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-heading);
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      nav .btn {
+        font-size: 0.875rem;
+        padding: 10px 24px;
+      }
+
+      /* ========================================
+         LEGAL CONTENT
+         ======================================== */
+      .legal {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+
+      .legal h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: var(--text-heading);
+        margin-bottom: 12px;
+      }
+
+      .legal .last-updated {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 48px;
+      }
+
+      .legal h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--text-heading);
+        margin-top: 40px;
+        margin-bottom: 12px;
+      }
+
+      .legal p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        line-height: 1.7;
+      }
+
+      .legal ul {
+        list-style: none;
+        margin: 0 0 12px;
+        padding: 0;
+      }
+
+      .legal li {
+        position: relative;
+        padding: 4px 0 4px 24px;
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .legal li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .legal strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .legal a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 0.2s;
+      }
+
+      .legal a:hover {
+        color: var(--accent-hover);
+      }
+
+      /* ========================================
+         FOOTER
+         ======================================== */
+      footer {
+        border-top: 1px solid var(--border-glass);
+        padding: 48px 0;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        margin-bottom: 16px;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        transition: color 0.2s;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: var(--text-heading);
+      }
+
+      footer p {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* ========================================
+         RESPONSIVE
+         ======================================== */
+      @media (max-width: 768px) {
+        .legal h1 {
+          font-size: 2rem;
+        }
+
+        .legal h2 {
+          font-size: 1.2rem;
+        }
+
+        .legal {
+          padding: 48px 24px 64px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .legal h1 {
+          font-size: 1.75rem;
+        }
+
+        nav .btn {
+          font-size: 0.8rem;
+          padding: 8px 18px;
+        }
+      }
+
+      /* ========================================
+         NAV LINKS + CONTENT PAGES
+         ======================================== */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .nav-link {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--text-heading);
+      }
+      .legal .lede {
+        font-size: 1.15rem;
+        color: var(--text);
+        margin-bottom: 32px;
+      }
+      .legal h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-heading);
+        margin-top: 28px;
+        margin-bottom: 8px;
+      }
+      .callout {
+        background: var(--bg-card);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius);
+        padding: 24px;
+        margin: 24px 0 32px;
+      }
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 16px 0 24px;
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-sm);
+      }
+      .legal table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+      .legal th,
+      .legal td {
+        text-align: left;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border-glass);
+        color: var(--text-muted);
+        vertical-align: top;
+      }
+      .legal th {
+        color: var(--text-heading);
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .legal tr:last-child td {
+        border-bottom: none;
+      }
+      .legal code {
+        font-size: 0.9em;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+      .legal .cta {
+        margin-top: 40px;
+        text-align: center;
+      }
+      .legal .cta .btn {
+        color: var(--bg-deep);
+        text-decoration: none;
+      }
+      @media (max-width: 480px) {
+        .nav-right {
+          gap: 14px;
+        }
+        .nav-link {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav>
+      <a href="/" class="logo">Reorder&nbsp;<span>Radar</span></a>
+      <div class="nav-right">
+        <a href="/faq/" class="nav-link">FAQ</a>
+        <a href="https://apps.shopify.com/reorder-radar" class="btn">Install</a>
+      </div>
+    </nav>
+
+    <main class="legal">
+
+      <h1>Reorder Radar vs Stocky</h1>
+      <p class="last-updated">Last updated: October 2026</p>
+      <p class="lede">
+        Shopify switched Stocky off on August 31, 2026. If you used it to
+        decide what to reorder, here's how Reorder Radar compares. We build
+        Reorder Radar, so we'll also say where it isn't a replacement.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>What happened to Stocky?</strong> Shopify's guide says that
+          as of August 31, 2026, Stocky is no longer available. You have
+          read-only access to export your data for at least 90 days after
+          that date. Shopify also notes that suppliers can't be exported from
+          Stocky, and that historical purchase orders can't be imported into
+          Shopify.
+          <a href="https://help.shopify.com/en/manual/products/inventory/transitioning-from-stocky">Read Shopify's transition guide</a>.
+        </p>
+      </div>
+
+      <h2>The short version</h2>
+      <p>
+        <strong>Reorder Radar replaces Stocky's &ldquo;what should I reorder,
+        and when?&rdquo; job.</strong> It forecasts from your Shopify sales
+        and ranks products by how much profit you'd lose if they ran out.
+      </p>
+      <p>
+        <strong>It doesn't replace Stocky's purchasing workflow.</strong>
+        There are no purchase orders, stock transfers or stocktakes. If you
+        need those, use a dedicated purchasing or inventory tool, or
+        Shopify's own purchase orders and transfers. Reorder Radar can run
+        alongside them.
+      </p>
+
+      <h2>Feature by feature</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Feature</th><th>Stocky</th><th>Reorder Radar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Availability</td><td>Switched off August 31, 2026 (read-only export window)</td><td>Available on the Shopify App Store</td></tr>
+            <tr><td>Reorder alerts ranked by profit at risk</td><td>Low-stock report (reorder point, lead time, need)</td><td>Yes: every product ranked by estimated lost profit</td></tr>
+            <tr><td>Stockout date and order-by date</td><td>Reorder point calculated from lead time and daily sales</td><td>Yes, from sales velocity, lead time and safety stock</td></tr>
+            <tr><td>Recommended reorder quantity</td><td>&ldquo;Need&rdquo; column in the low-stock report</td><td>Yes</td></tr>
+            <tr><td>Lead time and margin per product</td><td>Lead time per vendor</td><td>Store-wide defaults, plus overrides on any product</td></tr>
+            <tr><td>Weekly email of what to reorder</td><td>&mdash;</td><td>Yes (Pro)</td></tr>
+            <tr><td>Purchase orders</td><td>Yes</td><td>No</td></tr>
+            <tr><td>Vendor records and contacts</td><td>Yes</td><td>No</td></tr>
+            <tr><td>Stock transfers and stocktakes</td><td>Yes</td><td>No</td></tr>
+            <tr><td>Per-location forecasts</td><td>&mdash;</td><td>No: forecasts use total stock across locations</td></tr>
+            <tr><td>Price</td><td>No longer offered</td><td>Free for up to 50 products. Pro $49/month, unlimited</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How Reorder Radar decides what to reorder</h2>
+      <p>
+        For each product, Reorder Radar works out a daily sales velocity from
+        your Shopify orders. Recent days are weighted more heavily, so a
+        product that is speeding up or slowing down shows it quickly. From
+        that velocity, your current stock, your lead time and your safety
+        stock, it calculates:
+      </p>
+      <ul>
+        <li><strong>Days of stock</strong> left and the projected <strong>stockout date</strong></li>
+        <li>An <strong>order-by date</strong>, or <strong>Order Now</strong> when you're already late</li>
+        <li>A <strong>reorder quantity</strong> that covers lead time plus safety stock</li>
+        <li><strong>Profit at risk</strong>: the margin you'd lose on the days you'd be out of stock</li>
+      </ul>
+      <p>
+        Products that need ordering within the next week appear under
+        <strong>Reorder Alerts</strong>, sorted by profit at risk. Everything
+        else is under <strong>Monitoring</strong>. Each forecast is labelled
+        with a confidence level based on how many sales it's built on.
+      </p>
+
+      <h2>Moving from Stocky: a checklist</h2>
+      <ul>
+        <li>
+          <strong>Export what you can now.</strong> Download your purchase
+          order reports, stocktakes and cost data from Stocky's reports while
+          the read-only window is open.
+        </li>
+        <li>
+          <strong>Note your vendor lead times.</strong> In Stocky they're
+          set per vendor, and Shopify says suppliers can't be exported. Write
+          them down or take a screenshot.
+        </li>
+        <li>
+          <strong>Install Reorder Radar.</strong> It syncs your products,
+          stock levels and recent orders from Shopify, so there's no history
+          to import.
+        </li>
+        <li>
+          <strong>Set your defaults.</strong> In Settings, set a default lead
+          time, margin and safety stock (in days). Then override the lead
+          time or margin on any product whose supplier is slower or faster.
+        </li>
+      </ul>
+
+      <h2>When Reorder Radar isn't the right fit</h2>
+      <ul>
+        <li>You need to create, send and receive purchase orders.</li>
+        <li>You need reorder recommendations for each warehouse or store location.</li>
+        <li>You rely on stock transfers or formal stocktakes.</li>
+      </ul>
+      <p>
+        If that's you, choose a full inventory platform. You can still use
+        Reorder Radar alongside it for a ranked weekly reorder list.
+      </p>
+
+      <h2>Questions</h2>
+      <h3>Does Reorder Radar change my inventory?</h3>
+      <p>
+        No. It only has read access to your products, orders and inventory.
+        It never writes to your Shopify store.
+      </p>
+      <h3>How much does it cost?</h3>
+      <p>
+        The Free plan covers your top 50 products, ranked by profit at risk.
+        Pro is $49/month for unlimited products and the weekly email digest.
+      </p>
+      <h3>Have more questions?</h3>
+      <p>
+        See the <a href="/faq/">FAQ</a> or email
+        <a href="mailto:support@happy.software">support@happy.software</a>.
+      </p>
+
+      <div class="cta">
+        <a href="https://apps.shopify.com/reorder-radar" class="btn">Install Reorder Radar free</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+        <div class="footer-links">
+          <a href="/faq/">FAQ</a>
+          <a href="/vs/stocky/">Reorder Radar vs Stocky</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+        <p>Built by Happy Software</p>
+      </div>
+    </footer>
+  </body>
+</html>
