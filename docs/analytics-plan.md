@@ -1,8 +1,9 @@
 # Analytics plan: self-hosted Umami (RR-012)
 
-**Status: gated. Nothing in this repo loads analytics yet.**
-Do not add the snippet below until the owner approves running Umami on
-Coolify and the instance exists.
+**Status: live (approved 2026-11-13).** Umami runs on Coolify as the
+service `umami` and serves `https://stats.happy.software`. Every page loads
+the snippet below, and each install link sends a `data-umami-event` named
+`install-<utm_campaign>`.
 
 ## Why
 
